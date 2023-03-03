@@ -81,7 +81,7 @@
                 android:text="@string/login" />
 
             <TextView
-                android:id="@+id/gotoRegister"
+                android:id="@+id/gotoCreateUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

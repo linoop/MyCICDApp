@@ -1,12 +1,12 @@
-package com.example.mycicdapp.presentation.fragments
+package com.example.mycicdapp.presentation.views.fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.mycicdapp.R
 import com.example.mycicdapp.databinding.FragementUserListBinding
-import com.example.mycicdapp.presentation.MainActivity
-import com.example.mycicdapp.presentation.MainViewModel
+import com.example.mycicdapp.presentation.views.MainActivity
+import com.example.mycicdapp.presentation.viewModels.MainViewModel
 
 class UserListFragment: Fragment(R.layout.fragement_user_list) {
     private lateinit var binding: FragementUserListBinding

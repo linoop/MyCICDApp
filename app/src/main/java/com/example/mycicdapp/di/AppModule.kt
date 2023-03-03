@@ -2,8 +2,10 @@ package com.example.mycicdapp.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.mycicdapp.storage.MyDao
-import com.example.mycicdapp.storage.MyDatabase
+import com.example.mycicdapp.business.UserRepository
+import com.example.mycicdapp.data.repository.UserRepositoryImpl
+import com.example.mycicdapp.data.repository.database.UserDao
+import com.example.mycicdapp.data.repository.database.UserDatabase
 import com.example.mycicdapp.utils.Constants.MY_DATABASE_NAME
 import dagger.Module
 import dagger.Provides
@@ -18,7 +20,11 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideMyDao(@ApplicationContext app: Context): MyDao =
-        Room.databaseBuilder(app, MyDatabase::class.java, MY_DATABASE_NAME).build().getDao()
+    fun provideMyDao(@ApplicationContext app: Context): UserDao =
+        Room.databaseBuilder(app, UserDatabase::class.java, MY_DATABASE_NAME).build().getDao()
+
+    @Singleton
+    @Provides
+    fun provideUserRepository(userDao: UserDao): UserRepository = UserRepositoryImpl(userDao)
 
 }
