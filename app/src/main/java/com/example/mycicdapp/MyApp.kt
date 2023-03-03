@@ -7,4 +7,5 @@ import dagger.hilt.android.HiltAndroidApp
 class MyApp: Application() {
 }
 //Test commit
+
 //Ready to release v1.0
