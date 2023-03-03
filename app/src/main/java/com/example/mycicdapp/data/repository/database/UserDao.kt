@@ -10,7 +10,7 @@ import com.example.mycicdapp.utils.Constants.USER_TABLE
 @Dao
 interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun createUser(userModel: UserEntity)
+    fun createUser(userModel: UserEntity):Long
 
     @Query("SELECT * FROM $USER_TABLE WHERE user_id == :userId")
     fun getUserById(userId:Int):UserEntity
