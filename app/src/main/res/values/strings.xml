@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MyCICDApp</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="create_new_user">Create new user</string>
+    <string name="email">Email</string>
 </resources>
