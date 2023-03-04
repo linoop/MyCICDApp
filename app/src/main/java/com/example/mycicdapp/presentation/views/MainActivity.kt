@@ -1,11 +1,15 @@
 package com.example.mycicdapp.presentation.views
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mycicdapp.databinding.ActivityMainBinding
 import com.example.mycicdapp.presentation.viewModels.MainViewModel
+import com.microsoft.appcenter.AppCenter
+import com.microsoft.appcenter.analytics.Analytics
+import com.microsoft.appcenter.crashes.Crashes
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -15,6 +19,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        AppCenter.start(
+            application, "7a08bce0-13b6-4ab1-949c-e8de30da2dfa",
+            Analytics::class.java, Crashes::class.java
+        )
     }
 
     fun goBack(){
