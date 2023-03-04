@@ -11,6 +11,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('/Users/linoopkk/AndroidStudioProjects/MyCICDApp/Keystore.jks')
+            storePassword '123456'
+            keyAlias 'Key0'
+            keyPassword '123456'
+        }
+    }
     namespace 'com.example.mycicdapp'
     compileSdk 33
 
@@ -32,15 +40,6 @@ android {
             }
         }
     }
-
-//    signingConfigs {
-//        config {
-//            keyAlias keystoreProperties['keyAlias']
-//            keyPassword keystoreProperties['keyPassword']
-//            storeFile file(keystoreProperties['storeFile'])
-//            storePassword keystoreProperties['storePassword']
-//        }
-//    }
 
     buildFeatures {
         viewBinding true
