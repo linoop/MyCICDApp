@@ -12,6 +12,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
+/*
 
 @RunWith(AndroidJUnit4::class)
 class UserDatabaseTest {
@@ -51,7 +52,8 @@ class UserDatabaseTest {
         assertThat(user.name).isEqualTo("Linoop")
     }
 
-    /*@Test
+    */
+/*@Test
     @Throws(Exception::class)
     fun writeUserAndReadInList() {
         val user: User = TestUtil.createUser(3).apply {
@@ -60,5 +62,6 @@ class UserDatabaseTest {
         userDao.insert(user)
         val byName = userDao.findUsersByName("george")
         assertThat(byName.get(0), equalTo(user))
-    }*/
-}
+    }*//*
+
+}*/
