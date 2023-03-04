@@ -96,8 +96,8 @@ jobs:
 #        run: ./gradlew app:
 
   static-code-analysis:
-    # needs: [ instrumentation-test ]
-    name: Build and analyze
+    needs: [ instrumentation-test ]
+    name: Static code analysis
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -129,7 +129,7 @@ jobs:
         run: ./gradlew build sonarqube #--info
 
   package:
-    #needs: [static-code-analysis]
+    needs: [static-code-analysis]
     name: Generate APK
     runs-on: ubuntu-latest
     steps:
