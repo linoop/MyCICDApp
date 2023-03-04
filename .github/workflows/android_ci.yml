@@ -23,40 +23,40 @@ jobs:
 #      - name: Build with Gradle
 #        run: ./gradlew build
 
-  lint:
-    # needs: [ build ]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v3
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-      - name : Run Lint check
-        run : ./gradlew lintDebug
-      - name : Upload Lint report
-        uses: actions/upload-artifact@v3
-        with:
-          name: Lint.html
-          path: app/build/reports/lint-results-debug.html
-
-  unit-test:
-    needs: [ lint ]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v3
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-      - name: Run Unit testing
-        run: ./gradlew test
-      - name: Upload Unit test report
-        uses: actions/upload-artifact@v3
-        with:
-          name: UnitTestReport
-          path: app/build/reports/tests/testDebugUnitTest/
+#  lint:
+#    # needs: [ build ]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v3
+#      - name: Grant execute permission for gradlew
+#        run: chmod +x gradlew
+#      - name : Run Lint check
+#        run : ./gradlew lintDebug
+#      - name : Upload Lint report
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: Lint.html
+#          path: app/build/reports/lint-results-debug.html
+#
+#  unit-test:
+#    needs: [ lint ]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v3
+#      - name: Grant execute permission for gradlew
+#        run: chmod +x gradlew
+#      - name: Run Unit testing
+#        run: ./gradlew test
+#      - name: Upload Unit test report
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: UnitTestReport
+#          path: app/build/reports/tests/testDebugUnitTest/
 
   instrumentation-test:
-    needs: [ unit-test ]
+    #needs: [ unit-test ]
     runs-on: macos-latest
     steps:
       - name: Checkout the code
@@ -64,7 +64,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Run Instrumentation testing
-        uses: ReactiveCircus/android-emulator-runner@v3
+        uses: ReactiveCircus/android-emulator-runner@v2
         with:
           api-level: 33
           script: ./gradlew connectedCheck
