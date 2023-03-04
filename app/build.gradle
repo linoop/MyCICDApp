@@ -13,7 +13,7 @@ plugins {
 android {
     signingConfigs {
         debug {
-            storeFile file('/Users/linoopkk/AndroidStudioProjects/MyCICDApp/Keystore.jks')
+            storeFile file('../Keystore.jks')
             storePassword '123456'
             keyAlias 'Key0'
             keyPassword '123456'
